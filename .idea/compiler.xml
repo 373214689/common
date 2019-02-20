@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="common-api" />
+        <module name="csv-manager" />
+        <module name="data-schema" />
+        <module name="ftp-manager" />
+        <module name="hdfs-manager" />
+        <module name="jdbc-manager" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common" target="1.5" />
+      <module name="common-api" target="1.8" />
+      <module name="csv-manager" target="1.8" />
+      <module name="data-schema" target="1.8" />
+      <module name="ftp-manager" target="1.8" />
+      <module name="hdfs-manager" target="1.8" />
+      <module name="jdbc-manager" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="common-api" options="-bootclasspath $PROJECT_DIR$/../../../../local/java/jdk1.8.0_131/jre\lib\rt.jar;$PROJECT_DIR$/../../../../local/java/jdk1.8.0_131/jre\lib\jce.jar -Xlint:deprecation" />
+      <module name="csv-manager" options="-bootclasspath $PROJECT_DIR$/../../../../local/java/jdk1.8.0_131/jre\lib\rt.jar;$PROJECT_DIR$/../../../../local/java/jdk1.8.0_131/jre\lib\jce.jar -Xlint:deprecation" />
+      <module name="data-schema" options="-bootclasspath $PROJECT_DIR$/../../../../local/java/jdk1.8.0_131/jre\lib\rt.jar;$PROJECT_DIR$/../../../../local/java/jdk1.8.0_131/jre\lib\jce.jar -Xlint:deprecation" />
+      <module name="ftp-manager" options="-bootclasspath $PROJECT_DIR$/../../../../local/java/jdk1.8.0_131/jre\lib\rt.jar;$PROJECT_DIR$/../../../../local/java/jdk1.8.0_131/jre\lib\jce.jar -Xlint:deprecation" />
+      <module name="hdfs-manager" options="-bootclasspath $PROJECT_DIR$/../../../../local/java/jdk1.8.0_131/jre\lib\rt.jar;$PROJECT_DIR$/../../../../local/java/jdk1.8.0_131/jre\lib\jce.jar -Xlint:deprecation" />
+      <module name="jdbc-manager" options="-bootclasspath $PROJECT_DIR$/../../../../local/java/jdk1.8.0_131/jre\lib\rt.jar;$PROJECT_DIR$/../../../../local/java/jdk1.8.0_131/jre\lib\jce.jar -Xlint:deprecation" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/common.iml" filepath="$PROJECT_DIR$/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-api/common-api.iml" filepath="$PROJECT_DIR$/common-api/common-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/csv-manager/csv-manager.iml" filepath="$PROJECT_DIR$/csv-manager/csv-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/data-schema/data-schema.iml" filepath="$PROJECT_DIR$/data-schema/data-schema.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftp-manager/ftp-manager.iml" filepath="$PROJECT_DIR$/ftp-manager/ftp-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hdfs-manager/hdfs-manager.iml" filepath="$PROJECT_DIR$/hdfs-manager/hdfs-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdbc-manager/jdbc-manager.iml" filepath="$PROJECT_DIR$/jdbc-manager/jdbc-manager.iml" />
+    </modules>
+  </component>
+</project>

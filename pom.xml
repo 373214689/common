@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.liuyang</groupId>
+    <artifactId>common</artifactId>
+    <!-- <version>1.0.0-SNAPSHOT</version> -->
+    <!-- <version>1.0.3-RELEASE</version> -->
+    <version>1.0.4-RELEASE</version>
+    <!-- maven打包方式，默认为jar，还有：pom,maven-plugin,war,rar,zip -->
+    <packaging>pom</packaging>
+
+    <!-- 用在子模块中，实现对父模块的 POM 继承 -->
+    <!--<parent>
+    </parent>-->
+
+    <!-- 子模块 -->
+    <!-- 聚合多个maven项目，同时对所有聚合项目进行编译 -->
+    <modules>
+        <module>common-api</module>
+        <module>csv-manager</module>
+        <module>data-schema</module>
+        <module>ftp-manager</module>
+
+        <module>jdbc-manager</module>
+        <!-- <module>hdfs-manager</module> -->
+    </modules>
+
+    <!-- 项目描述名，url，详细描述，产生项目文档使用 -->
+    <name>Common</name>
+    <url>http://maven.apache.org</url>
+    <description>Common Properties for LiuYang' packages</description>
+
+    <!-- 开发人员列表，项目发布使用 -->
+    <developers>
+        <developer>
+            <id>00071</id>
+            <name>XDR Data Quality</name>
+            <email>liuyang@lcservis.com</email>
+            <url />
+            <!-- 项目开发者在项目中扮演的角色，角色元素描述了各种角色 -->
+            <roles>
+                <role>developer</role>
+            </roles>
+            <organization>lcservis</organization>
+            <organizationUrl>http://www.lcservis.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>Lcservis's License</name>
+            <!-- 官方的license正文页面的URL -->
+            <url>http://www.lcservis.com</url>
+            <!-- 项目分发的主要方式：repo，可以从Maven库下载，manual，用户必须手动下载和安装依赖 -->
+            <distribution>repo</distribution>
+            <!-- 关于license的补充信息 -->
+            <comments>null</comments>
+        </license>
+    </licenses>
+
+    <!-- 项目所属组织信息 -->
+    <organization>
+        <name>lcservis</name>
+        <url>http://www.lcservis.com</url>
+    </organization>
+
+
+    <!-- 项目项献者列表 -->
+    <contributors>
+
+    </contributors>
+
+    <!-- 版本控制 -->
+    <!--<scm>
+        &lt;!&ndash;release包需要放入的nexus或者其他maven release包的仓库url地址&ndash;&gt;
+        <url>http://192.168.9.1:8081/repository/maven-releases/</url>
+        &lt;!&ndash;connection, developerConnection: 都是连接字符串，其中后者是具有write权限的scm连接 &ndash;&gt;
+        &lt;!&ndash;需要打包项目的git地址&ndash;&gt;
+        <developerConnection>scm:git:https://github.com/373214689/common.git</developerConnection>
+        &lt;!&ndash;需要打包项目的git地址&ndash;&gt;
+        <connection>scm:git:https://github.com/373214689/common.git</connection>
+        <tag>HEAD</tag>
+    </scm>-->
+
+    <!-- 私有仓库发布配置 -->
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <name>XDR of Nexus Releases Repository</name>
+            <url>http://192.168.9.1:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <name>XDR of Nexus Snapshot Repository</name>
+            <url>http://192.168.9.1:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <!-- 属性 -->
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.version>3.6.1</maven.version>
+        <source.encoding>UTF-8</source.encoding>
+    </properties>
+
+    <!-- 依赖 -->
+    <dependencies>
+    </dependencies>
+
+    <build>
+        <!--
+       Maven定制化打包后的包名
+       Maven默认的包名为:<finalName>${project.artifactId}-${project.version}</finalName>
+       定制化想要的包名,如加上时间戳:<finalName>${project.artifactId}-${maven.build.timestamp}</finalName>
+       -->
+        <finalName>common</finalName>
+        <!-- 插件列表 -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.version}</version>
+                    <configuration>
+                        <!-- 源代码编译版本 -->
+                        <source>${java.version}</source>
+                        <!-- 目标平台编译版本 -->
+                        <target>${java.version}</target>
+                        <!-- 设置编译字符集编码 -->
+                        <encoding>${source.encoding}</encoding>
+                        <compilerArgs>
+                            <!-- 过期的方法的警告-->
+                            <arg>-Xlint:deprecation</arg>
+                        </compilerArgs>
+                        <compilerArguments>
+                            <!-- 是否输出所有的编译信息（包括类的加载等）-->
+                            <!--<verbose />-->
+                            <!-- 解决maven命令编译报错，因为rt.jar 和jce.jar在jre的lib下面，不在jdk的lib下面，
+                            导致maven找不到（java7以后会出现这个问题），将这2个jar包拷贝到jdk的lib下面估计也好使-->
+                            <bootclasspath>${java.home}\lib\rt.jar;${java.home}\lib\jce.jar</bootclasspath>
+                        </compilerArguments>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
